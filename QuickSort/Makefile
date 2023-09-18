@@ -27,13 +27,13 @@ DEPENDENCY_FILES := $(OBJECT_FILES:.o=.d)
 vpath %.cpp ./include
 
 all: $(BIN_DIR)/$(APP_NAME)
-	$(BIN_DIR)/./$(APP_NAME)
+	@$(BIN_DIR)/./$(APP_NAME)
 
 $(BIN_DIR)/$(APP_NAME): $(OBJECT_FILES)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	@$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJECT_FILES): $(BUILD_DIR)/%.o : %.cpp | $(BIN_DIR) $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $(INCLUDE_DIR) -c $< -MMD -o $@
+	@$(CXX) $(CXXFLAGS) $(INCLUDE_DIR) -c $< -MMD -o $@
 
 
 # just to check if correct files are selected
@@ -43,13 +43,9 @@ source:
 # just to check if object files are being generated in the correct location
 object:
 	@echo $(OBJECT_FILES)
-
+# check final executable name
 name:
 	@echo $(APP_NAME)
-
-obj_dir:
-	@echo $(OBJECT_DIR)
-
 
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
