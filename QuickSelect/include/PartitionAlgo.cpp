@@ -2,7 +2,7 @@
 #include <iostream>
 #include "PartitionAlgo.hpp"
 
-int partitionAlgo(std::vector<int> &v, int low, int high)
+int partitionAlgo(std::unordered_map<int, int> &map, std::vector<int> &v, int low, int high)
 {
     int i = low;    // low pointer
     int j = high;   // high pointer
@@ -10,11 +10,11 @@ int partitionAlgo(std::vector<int> &v, int low, int high)
 
     while(i < j) {
         // keep incrementing low pointer untill it reaches an element which is greater than pivot
-        while(i <= high && v[i] <= pivot)
+        while(i <= high && map[v[i]] <= pivot)
             i++;
 
         // keep decrementing high pointer untill it reaches an element which is lesser than pivot
-        while(j >= low && v[j] > pivot)
+        while(j >= low && map[v[j]] > pivot)
             j--;
         
         // swap values at low pointer and high pointer
