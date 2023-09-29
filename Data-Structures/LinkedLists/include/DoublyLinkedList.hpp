@@ -22,7 +22,7 @@ class DoublyLinkedList {
         ~DoublyLinkedList();
 
         void appendNode(int);
-        void deleteNode(int);
+        void deleteNode();
         void printList(void);
 };
 
