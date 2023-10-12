@@ -16,7 +16,7 @@ void merge(std::vector<int>& vec, int low, int mid, int high) {
     int i = low;
     int j = mid + 1;
     int k = low;
-    int size = (int)vec.size() * 5;
+    int size = (int)vec.size();
     std::vector<int> tempVec(size, 0);
 
     while(i <= mid && j <= high)
