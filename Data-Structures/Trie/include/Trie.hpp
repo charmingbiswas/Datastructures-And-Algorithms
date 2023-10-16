@@ -11,6 +11,7 @@ class Trie {
             Node();
             ~Node();
         };
+        void recursiveDeleteNodePrivate(Node*); // To delete all dynamic Nodes in the Trie when the destructor is called
     
     public:
         Node* root;
