@@ -53,7 +53,7 @@ void mergeSort(std::vector<int>& v, int low, int high) {
 
 int main() {
     // Create a random vector
-    std::vector<int> v = {5, 3, 2, 10, 9, 11, 11, 11, 5};
+    std::vector<int> v = {3, 4, 1, 1, 2, 6, 2, 7, 9, 8, 5, 3};
     std::cout << "Vector before merge sort\n";
     std::cout << v << std::endl;
     mergeSort(v, 0, (int)v.size() - 1);
