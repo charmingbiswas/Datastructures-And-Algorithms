@@ -3,7 +3,7 @@ CXX := clang++
 CXXFLAGS := -std=c++11 -Wall -Wextra
 
 # Add linker flags here in case of external libraries
-CXXFLAGS_EXTRA := -g
+CXXFLAGS_EXTRA :=
 
 APP_NAME := $(notdir $(shell pwd))
 
