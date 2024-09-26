@@ -2,9 +2,35 @@
 #include <vector>
 #include <numeric>
 
+// -------------- BRUTE FORCE -------------------- //
+int shipWithinDays(std::vector<int> weights, int days) {
+    int minCapacity = *std::max_element(weights.begin(), weights.end());
+    
+    bool flag = true;
+
+    while(flag) {
+        int sum = 0;
+        int daysUsed = 1;
+
+        for(int i = 0; i < (int)weights.size(); i++) {
+            sum += weights[i];
+            if(sum > minCapacity) {
+                sum = weights[i];
+                daysUsed++;
+            }
+        }
+
+        if(daysUsed <= days) {
+            flag = false;
+        }
+        minCapacity++;
+    }
+    return minCapacity;
+}
+
 // -------------- OPTIMIZED (MODIFIED BINARY SEARCH) -------------- /
 
-int shipWithinDaysOptimized(std::vector<int> weights, int days) {
+int shipWithinDaysOpt(std::vector<int> weights, int days) {
 
     int minCapacity = *std::max_element(weights.begin(), weights.end()); // avg
     int maxCapacity = std::accumulate(weights.begin(), weights.end(), 0);
@@ -34,6 +60,6 @@ int shipWithinDaysOptimized(std::vector<int> weights, int days) {
 
 int main() {
     std::vector<int> v = {1,2,3,1,1}; int days = 4;
-    std::cout << shipWithinDaysOptimized(v, days) << std::endl;
+    std::cout << shipWithinDays(v, days) << std::endl;
     return 0;
 }                                                                         
