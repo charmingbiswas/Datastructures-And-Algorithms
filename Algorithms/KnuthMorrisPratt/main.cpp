@@ -2,6 +2,14 @@
 #include <string>
 #include <vector>
 
+std::ostream& operator<<(std::ostream& os, const std::vector<int>& vec) {
+    for(int i : vec) {
+        os << i << " ";
+    }
+    os << std::endl;
+    return os;
+}
+
 void generateLPS(std::string pattern, std::vector<int>& LPS) {
     int size = (int)pattern.size();
     int i = 1;
@@ -31,7 +39,7 @@ std::vector<int> KMP(std::string str, std::string pattern) {
     std::vector<int> answer;
     std::vector<int> LPS(N, 0);
     generateLPS(pattern, LPS);
-
+    std::cout << LPS << std::endl;
     while(i < M) {
         if(str[i] == pattern[j]) {
             i++;
@@ -55,7 +63,7 @@ int main() {
     std::string s = "aabaaabaaac";  
     // std::string s = "mississippi";
     // std::string pattern = "issipi";
-    std::string pattern = "aabaaac";
+    std::string pattern = "level";
     std::vector<int> result = KMP(s, pattern);
     for(auto i : result) {
         std::cout << i << std::endl;
