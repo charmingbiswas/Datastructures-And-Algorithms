@@ -63,6 +63,7 @@
     "execution": "cpp",
     "stack": "cpp",
     "memory": "cpp",
-    "print": "cpp"
+    "print": "cpp",
+    "numbers": "cpp"
   }
 }
